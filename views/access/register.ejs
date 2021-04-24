@@ -1,0 +1,30 @@
+<center>
+    <br>
+    <h1>Registrar-se</h1>
+    <br>
+    <form action="" method="POST">
+        <div>
+            <label for="">Informe um nome de usuário:</label>
+            <br>
+            <input type="text" name="username">
+        </div>
+        <br>
+        <div>
+            <label for="">Informe um email:</label>
+            <br>
+            <input type="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label for="">Informe uma senha:</label>
+            <br>
+            <input type="password" name="password">
+        </div>
+        <br>
+        <%- include('../layouts/errors/errorAccess.ejs')%>
+        <br>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+</center>

@@ -1,0 +1,39 @@
+<center>
+    <br>
+    <h1>Bem vindo ao cra.Guider</h1>
+    <br>
+    <a href="/feed/logout">Sair do c.r.a</a>
+    <a href="/feed/profile">Perfil</a>
+    <br>
+    <form action="" method="POST">
+        <h3>Cria um novo guider</h3>
+        <div>
+            <label for="">Informe o titúlo do guider (mês por exemplo):</label>
+            <br>
+            <br>
+            <input type="text" name="title">
+        </div>
+        <br>
+        <div>
+            <label for="">Informe uma descrição (opcional):</label>
+            <br>
+            <textarea name="description" id="" cols="25" rows="5"></textarea>
+        </div>
+        <br>        
+        <br>
+        <div>
+            <button type="submit">Criar um guider</button>
+        </div>
+    </form>
+</center>
+<hr>
+<% userGuiders.forEach(guider => {%>
+    <div>
+        <h2><%= guider.title %></h2>
+        <p><%= guider.description %></p>
+        <br>
+        <p>Criado em : <%= guider.createdAt.toLocaleString().substr(0, 10) %></p>
+        <a href="">Acessar</a>
+    </div>    
+    <br>
+<%})%>
