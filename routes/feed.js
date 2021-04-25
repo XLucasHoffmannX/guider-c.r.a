@@ -23,13 +23,25 @@ router.get('/', async (req, res) => {
     try {
         const user = req.user
         const guiders = await Guider.find()
+        const tasks = await Task.find();
 
         const userGuiders = []
+        const userTasks = []
         const userId = user.id;
 
         for (let guider of guiders) if (userId == guider.userTo) userGuiders.push(guider);
 
-        return res.render('./feed/feed', { userGuiders })
+        for (let guider of userGuiders){ 
+            for(let task of tasks){
+                if(task.guider == guider.id && task.assignedTo == userId){
+                    userTasks.push(task)
+                }
+            }
+        }  
+
+        const numberTasks = userTasks.length
+        
+        return res.render('./feed/feed', { userGuiders, numberTasks})
     } catch (error) {
         if (error) throw error
     }
@@ -49,6 +61,16 @@ router.post('/', async (req, res) => {
         return res.redirect('/feed/')
     } catch (error) {
         if (error) throw error
+    }
+})
+
+router.delete('/:id', async (req, res)=>{
+    try {
+        await Guider.findByIdAndDelete(req.params.id)
+
+        return res.redirect('/feed')
+    } catch (error) {
+        if(error) throw error
     }
 })
 

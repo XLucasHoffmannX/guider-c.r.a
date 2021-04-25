@@ -25,6 +25,7 @@
             <button type="submit">Criar um guider</button>
         </div>
     </form>
+    <h3>Número de atendimentos já feitos : <%= numberTasks %></h3>
 </center>
 <hr>
 <% userGuiders.forEach(guider => {%>
@@ -34,6 +35,12 @@
         <br>
         <p>Criado em : <%= guider.createdAt.toLocaleString().substr(0, 10) %></p>
         <a href="/feed/guider/<%=  guider._id %>">Acessar</a>
+        <br>
+        <a href="">Editar</a>
+        <form action="/feed/<%=guider.id%>?_method=DELETE" method="POST">
+            <button type="submit">Excluir</button>
+        </form>
+
     </div>    
     <br>
 <%})%>
