@@ -1,5 +1,39 @@
-<h1>Pagina Inicial</h1>
-<br>
-<h2>Bem Vindo!</h2>
-<br>
-<a href="/access">Acessar</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <%- include('./layouts/head') %>
+        <link rel="stylesheet" href="css/styles/landing.css">
+        <title>GuiderCRA</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header-landing">
+            <%- include('./layouts/geral/header.ejs') %>
+        </header>
+        <main class="main">
+            <div class="landing-home">
+                <div class="content-home">
+                    <h2>Sistema para ter o controle de seus <span class="promotion-control">atendimentos</span> e <span class="promotion-control">retornos</span></h2>
+                    <p>GuiderCRA é uma solução simples para você que quer ter certeza de seus números.</p>
+                    <a class="signup" href="/access/register">Começar agora</a>
+                </div>
+                <div class="img-home">
+                    <img src="/img/back.gif" alt="Imagem da Home">
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="title-footer">
+                GuiderCRA - desenvolvido por Hoffmann
+            </div>
+            <div class="subtitle-footer">© All rights reserved</div>
+        </footer>
+        <script src="/js/script.js"></script>
+    </div>
+
+
+</body>
+
+</html>

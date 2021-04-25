@@ -1,24 +1,43 @@
-<center>
-    <br>
-    <h1>Login</h1>
-    <br>
-    <form action="" method="POST">
-        <div>
-            <label for="">Informe seu email:</label>
-            <br>
-            <input type="text" name="email">
-        </div>
-        <br>
-        <div>
-            <label for="">Informe sua senha:</label>
-            <br>
-            <input type="text" name="password">
-        </div>
-        <br>
-        <%- include('../layouts/errors/errorAccess.ejs')%>
-        <br>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
-</center>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/head.ejs') %>
+    <link rel="stylesheet" href="/css/styles/landing.css">
+    <link rel="stylesheet" href="/css/styles/formAccess.css">
+    <title>Fazer Login</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header-landing">
+            <%- include('../layouts/geral/header.ejs') %>
+        </header>
+        <main class="main">
+            <form action="" method="POST">
+                <h3>Login</h3>
+                <div class="filds">
+                    <input type="email" id="email" name="email" placeholder="Email" required="">
+                    <label for="firstName">Insira seu email</label>
+                </div>
+                <div class="filds">
+                    <input type="password" name="password" id="password" placeholder="Password" required="">
+                    <label for="password">Senha</label>
+                </div>
+                <%- include('../layouts/errors/errorAccess.ejs')%>
+                <div class="btn-object">
+                    <button type="submit" class="login">Entrar</button>
+                </div>
+            </form>
+            <p class="alert-signup">Não possui uma conta ainda ? <a href="/access/register">Cadastrar-se</a></p>
+        </main>
+        <footer>
+            <div class="title-footer">
+                GuiderCRA - desenvolvido por Hoffmann
+            </div>
+            <div class="subtitle-footer">© All rights reserved</div>
+        </footer>
+    </div>
+</body>
+
+</html>

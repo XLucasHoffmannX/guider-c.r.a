@@ -1,4 +1,52 @@
-<center>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/head.ejs') %>
+    <link rel="stylesheet" href="/css/styles/landing.css">
+    <link rel="stylesheet" href="/css/styles/formAccess.css">
+    <title>Fazer Cadastro</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header-landing">
+            <%- include('../layouts/geral/header.ejs') %>
+        </header>
+        <main class="main">
+            <form action="" method="POST">
+                <h3>Cadastro</h3>
+                <div class="filds">
+                    <input type="text" id="name" name="username" placeholder="Name" required="">
+                    <label for="firstName">Insira seu nome de usuário</label>
+                </div>
+                <div class="filds">
+                    <input type="email" id="email" name="email" placeholder="Email" required="">
+                    <label for="firstName">Insira seu email</label>
+                </div>
+                <div class="filds">
+                    <input type="password" name="password" id="password" placeholder="Password" required="">
+                    <label for="password">Senha</label>
+                </div>
+                <%- include('../layouts/errors/errorAccess.ejs')%>
+                <div class="btn-object">
+                    <button type="submit" class="login">Entrar</button>
+                </div>
+            </form>
+            <p class="alert-signup">Já possui uma conta ? <a href="/access/login">Login</a></p>
+        </main>
+        <footer>
+            <div class="title-footer">
+                GuiderCRA - desenvolvido por Hoffmann
+            </div>
+            <div class="subtitle-footer">© All rights reserved</div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<!-- <center>
     <br>
     <h1>Registrar-se</h1>
     <br>
@@ -27,4 +75,4 @@
             <button type="submit">Cadastrar</button>
         </div>
     </form>
-</center>
+</center> -->
