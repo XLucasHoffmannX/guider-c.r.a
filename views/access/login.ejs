@@ -21,7 +21,7 @@
                     <label for="firstName">Insira seu email</label>
                 </div>
                 <div class="filds">
-                    <input type="password" name="password" id="password" placeholder="Password" required="">
+                    <input type="text" name="password" id="password" placeholder="Password" required="">
                     <label for="password">Senha</label>
                 </div>
                 <%- include('../layouts/errors/errorAccess.ejs')%>
@@ -32,10 +32,7 @@
             <p class="alert-signup">Não possui uma conta ainda ? <a href="/access/register">Cadastrar-se</a></p>
         </main>
         <footer>
-            <div class="title-footer">
-                GuiderCRA - desenvolvido por Hoffmann
-            </div>
-            <div class="subtitle-footer">© All rights reserved</div>
+            <%- include('../layouts/geral/footer') %>
         </footer>
     </div>
 </body>

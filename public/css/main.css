@@ -34,3 +34,11 @@ a:hover {
 button{
     cursor: pointer;
 }
+
+.hide{
+    display: none;
+    visibility: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}

@@ -1,45 +1,90 @@
-<center>
-    <br>
-    <h1>Bem vindo ao cra.Guider</h1>
-    <br>
-    <a href="/feed/logout">Sair do c.r.a</a>
-    <a href="/feed/profile">Perfil</a>
-    <br>
-    <form action="" method="POST">
-        <h3>Cria um novo guider</h3>
-        <div>
-            <label for="">Informe o titúlo do guider (mês por exemplo):</label>
-            <br>
-            <br>
-            <input type="text" name="title">
-        </div>
-        <br>
-        <div>
-            <label for="">Informe uma descrição (opcional):</label>
-            <br>
-            <textarea name="description" id="" cols="25" rows="5"></textarea>
-        </div>
-        <br>        
-        <br>
-        <div>
-            <button type="submit">Criar um guider</button>
-        </div>
-    </form>
-    <h3>Número de atendimentos já feitos : <%= numberTasks %></h3>
-</center>
-<hr>
-<% userGuiders.forEach(guider => {%>
-    <div>
-        <h2><%= guider.title %></h2>
-        <p><%= guider.description %></p>
-        <br>
-        <p>Criado em : <%= guider.createdAt.toLocaleString().substr(0, 10) %></p>
-        <a href="/feed/guider/<%=  guider._id %>">Acessar</a>
-        <br>
-        <a href="/feed/edit/<%=guider.id%>">Editar</a>
-        <form action="/feed/<%=guider.id%>?_method=DELETE" method="POST">
-            <button type="submit">Excluir</button>
-        </form>
-    </div>    
-    <br>
-<%})%>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <%- include('../layouts/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles/feed/feed.css">
+        <title>Feed</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header_feed">
+            <div class="logo">
+                <a href="/feed">
+                    <h2>GuiderCRA</h2>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/feed">Feed</a></li>
+                    <li><a href="/feed/profile">Perfil</a></li>
+                    <li><a href="/feed/logout">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main_feed">
+            <div class="card_Addguider">
+                <h2>Bem vindo ao feed!</h2>
+                <p>Clique no botão abaixo para adicionar um guia, o guia é uma representaçao das suas metas e anotações:
+                </p>
+                <form class="formAddGuider" action="" method="POST">
+                    <div class="f_control sel">
+                        <label for="month">Informe o mês de título:</label>
+                        <select name="title" id="month">
+                            <option value="Janeiro">Janeiro</option>
+                            <option value="Favereiro">Favereiro</option>
+                            <option value="Março">Março</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Maio">Maio</option>
+                            <option value="Junho">Junho</option>
+                            <option value="Julho">Julho</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Setembro">Setembro</option>
+                            <option value="Outubro">Outubro</option>
+                            <option value="Novembro">Novembro</option>
+                            <option value="Dezembro">Dezembro</option>
+                        </select>
+                    </div>
+                    <div class="f_control">
+                        <label for="">Descrição:</label>
+                        <textarea name="description" id=""></textarea>
+                    </div>
+                    <div class="btn_f_control">
+                        <button>Adicionar um novo guider</button>
+                    </div>
+                </form>
+            </div>
+            <div class="guiders_recent">
+                <% userGuiders.forEach(guider=> {%>
+                    <div class="guider">
+                        <div class="opt">
+                            <a href="/feed/edit/<%= guider.id %>" class="edit_guider">Editar</a>
+                            <form action="/feed/<%=guider.id%>?_method=DELETE" method="POST">
+                                <button class="remove_guider">Remover</button>
+                            </form>
+                        </div>
+                        <h2>
+                            <%=guider.title%>
+                        </h2>
+                        <p>Criado em : <b><%= guider.createdAt.toLocaleString().substr(0, 10)%></b>
+                        </p>
+                        <p>
+                            <%= guider.description %>
+                        </p>
+                        <div class="btn_guider">
+                            <a href="/feed/guider/<%= guider._id %>">Acessar</a>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </main>
+        <footer class="footer_feed">
+
+        </footer>
+    </div>
+    <script src="/js/feedScript.js"></script> 
+    </script>
+</body>
+
+</html>
