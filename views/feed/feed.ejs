@@ -36,11 +36,10 @@
         <p>Criado em : <%= guider.createdAt.toLocaleString().substr(0, 10) %></p>
         <a href="/feed/guider/<%=  guider._id %>">Acessar</a>
         <br>
-        <a href="">Editar</a>
+        <a href="/feed/edit/<%=guider.id%>">Editar</a>
         <form action="/feed/<%=guider.id%>?_method=DELETE" method="POST">
             <button type="submit">Excluir</button>
         </form>
-
     </div>    
     <br>
 <%})%>

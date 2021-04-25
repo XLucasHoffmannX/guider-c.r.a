@@ -74,6 +74,29 @@ router.delete('/:id', async (req, res)=>{
     }
 })
 
+router.get('/edit/:id', async(req, res)=>{
+    try {
+        const guider = await Guider.findById(req.params.id);
+
+        return res.render('./feed/pages/edit', { guider })
+    } catch (error) {
+        if(error) throw error
+    }
+})
+
+router.put('/edit/:id', async(req, res)=>{
+    try {
+        let guider = await Guider.findById(req.params.id);
+        guider.title = req.body.title;
+        guider.description = req.body.description;
+
+        guider = await guider.save();
+        return res.redirect('/feed')
+    } catch (error) {
+        if(error) throw error
+    }
+})
+
 // View guider
 router.get('/guider/:guiderId', async (req, res) => {
     try {
@@ -112,6 +135,45 @@ router.post('/guider/:guiderId', async (req, res) => {
         await newTask.save();
 
         res.redirect('back')
+    } catch (error) {
+        if(error) throw error
+    }
+})
+
+let succesEdit;
+
+router.get('/guider/edit/:id', async(req, res)=>{
+    try {
+        const task = await Task.findById(req.params.id);
+
+        res.render('./feed/pages/tasks/editTask', { task })
+    } catch (error) {
+        if(error) throw error
+    }
+})
+
+
+router.put('/guider/edit/:id', async(req, res, next)=>{
+    try {
+        let task = await Task.findById(req.params.id);
+        task.protocol = req.body.protocol;
+        task.type = req.body.type;
+
+        await task.save();
+
+        req.flash('editMessage', "Editado! Volte para a página anterior e renicie !")
+        
+        res.redirect(`/feed/guider/edit/${req.params.id}`)
+    } catch (error) {
+        if(error) throw error
+    }
+})
+
+router.delete('/guider/delTask/:id', async(req, res)=>{
+    try {
+        await Task.findByIdAndDelete(req.params.id);
+
+        return res.redirect('back')
     } catch (error) {
         if(error) throw error
     }

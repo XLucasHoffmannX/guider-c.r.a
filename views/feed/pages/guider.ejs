@@ -41,6 +41,11 @@
             <%}%>
             <br>
             <h3><%= task.createdAt.toLocaleString()%></h3>
+            <br>
+            <a href="/feed/guider/edit/<%=task.id%>">Editar</a>
+            <form action="/feed/guider/delTask/<%=task.id%>?_method=DELETE" method="POST">
+                <button type="submit">Excluir task</button>
+            </form>
         </div>
         <hr>
     <%})%>

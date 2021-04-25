@@ -1,0 +1,25 @@
+<br>
+<center>
+    <h1>Editar</h1>
+    <% if (editMessage.length > 0) {%>
+        <div><%= editMessage %></div>
+    <% } %>
+    <form action="/feed/guider/edit/<%=task.id%>?_method=PUT" method="POST">
+        <div>
+            <label for="">Informe o número de protocolo</label>
+            <br>
+            <input type="text" name="protocol" value="<%=task.protocol%>">
+            <br>
+            <br>
+            <label for="">Tipo:</label>
+            <select name="type" id="">
+                <option value="attendance">Atendimento</option>
+                <option value="return">Retorno</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Adicionar</button>
+        </div>
+    </form>
+</center>
