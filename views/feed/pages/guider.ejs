@@ -1,0 +1,47 @@
+<center>
+    <div>
+        <h2><%= guider.title %></h2>
+    </div>
+    <div>
+        <p><%= guider.description %></p>
+    </div>
+    <div>
+        <p>Criado em: <%= guider.createdAt.toLocaleString().substr(0, 10)%></p>
+    </div>
+
+    <br>
+        <form action="/feed/guider/<%=guider.id%>" method="POST">
+            <div>
+                <label for="">Informe o número de protocolo</label>
+                <br>
+                <input type="text" name="protocol">
+                <br>
+                <br>
+                <label for="">Tipo:</label>
+                <select name="type" id="">
+                    <option value="attendance">Atendimento</option>
+                    <option value="return">Retorno</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <button type="submit">Adicionar</button>
+            </div>
+        </form>
+    </div>
+    <% tasksUser.reverse().forEach(task => { %>
+        <hr>
+        <div>
+            <h2>Número de protocolo : <%= task.protocol %></h2>
+            <%if(task.type == 'return'){%>
+                <h3>Tipo de Atendimento: Retorno</h3>
+            <%}%>
+            <%if(task.type == 'attendance'){%>
+                <h3>Tipo de Atendimento: Atendimento</h3>
+            <%}%>
+            <br>
+            <h3><%= task.createdAt.toLocaleString()%></h3>
+        </div>
+        <hr>
+    <%})%>
+</center>

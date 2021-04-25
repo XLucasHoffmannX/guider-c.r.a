@@ -5,6 +5,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 // app 
 const app = express();
 
@@ -12,6 +13,7 @@ require('./middlewares/auth')
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(session({
     secret: 'mysecretsession',
     resave: false,

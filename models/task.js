@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
-    title: {
+    protocol: {
+        type: String,
+        required: true
+    },
+    type: {
         type: String,
         required: true
     },
@@ -14,11 +18,6 @@ const TaskSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    },
-    completed: {
-        type: Boolean,
-        required: true,
-        default: false
     },
     createdAt: {
         type: Date,
