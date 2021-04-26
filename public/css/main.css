@@ -35,6 +35,11 @@ button{
     cursor: pointer;
 }
 
+input, textarea, select{
+    border: none;
+    outline: none;
+}
+
 .hide{
     display: none;
     visibility: none;

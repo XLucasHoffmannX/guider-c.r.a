@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const TaskSchema = new mongoose.Schema({
     protocol: {
         type: String,
-        required: true
+        default: 'Não informado'
     },
     type: {
         type: String,

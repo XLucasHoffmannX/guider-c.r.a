@@ -1,52 +1,78 @@
-<center>
-    <div>
-        <h2><%= guider.title %></h2>
-    </div>
-    <div>
-        <p><%= guider.description %></p>
-    </div>
-    <div>
-        <p>Criado em: <%= guider.createdAt.toLocaleString().substr(0, 10)%></p>
-    </div>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <br>
-        <form action="/feed/guider/<%=guider.id%>" method="POST">
-            <div>
-                <label for="">Informe o número de protocolo</label>
-                <br>
-                <input type="text" name="protocol">
-                <br>
-                <br>
-                <label for="">Tipo:</label>
-                <select name="type" id="">
-                    <option value="attendance">Atendimento</option>
-                    <option value="return">Retorno</option>
-                </select>
+<head>
+    <%- include('../../layouts/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles/feed/feed.css">
+        <link rel="stylesheet" href="/css/styles/feed/guider.css">
+        <title>Feed</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header_feed">
+            <%- include('../../layouts/feed/header.ejs') %>
+        </header>
+        <main class="main_feed">
+            <div class="guider_header">
+                <h1><%= guider.title %></h1>
+                <p>Criado em : <b><%= guider.createdAt.toLocaleString().substr(0, 10)%></b></p>
+                <% if(guider.description){ %>
+                    <p class="descri"><%= guider.description%></p>
+                <%}%>
+                <h2>Adicionar Task</h2>
+                <form class="form_task" action="/feed/guider/<%=guider.id%>" method="POST" >
+                    <div class="task_c">
+                        <label for="">Protocolo: </label>
+                        <input type="number" class="protocol" name="protocol">
+                    </div>
+                    <div class="task_c">
+                        <label for="">Tipo de atendimento:</label>
+                        <select name="type" id="">
+                            <option value="attendance">Atendimento</option>
+                            <option value="return">Retorno</option>
+                        </select>
+                    </div>
+                    <div class="task_btn">
+                        <button>Adicionar</button>
+                    </div>
+                </form>
             </div>
-            <br>
-            <div>
-                <button type="submit">Adicionar</button>
-            </div>
-        </form>
+            <h2 class="task_recent">Tasks recentes: (total: <%=tasksUser.length%>)</h2>
+            <% tasksUser.reverse().forEach(task => { %>
+                <div class="card_task">
+                    <div class="inf">
+                        <span>Criado em: <b><%= task.createdAt.toLocaleString()%></b></span>
+                    </div>
+                    <div class="sup">
+                        <%if(task.protocol){%>
+                            <span>Protocolo: <b><%= task.protocol %></b></span>
+                        <%}%>
+                        <%if(!(task.protocol)){%>
+                            <span>Protocolo: <b>Não informado</b></span>
+                        <%}%>
+                        <%if(task.type == 'return'){%>
+                            <span>Tipo: <b> Retorno</b></span>
+                        <%}%>
+                        <%if(task.type == 'attendance'){%>
+                            <span>Tipo: <b> Atendimento</b></span>    
+                        <%}%>
+                    </div>
+                    <div class="sup">
+                        <a href="/feed/guider/edit/<%=task.id%>" class="edit_guider">Editar</a>
+                        <form action="/feed/guider/delTask/<%=task.id%>?_method=DELETE" method="POST">
+                            <button class="remove_guider">Remover</button>
+                        </form>
+                    </div>
+                </div>
+            <%})%>
+        </main>
     </div>
-    <% tasksUser.reverse().forEach(task => { %>
-        <hr>
-        <div>
-            <h2>Número de protocolo : <%= task.protocol %></h2>
-            <%if(task.type == 'return'){%>
-                <h3>Tipo de Atendimento: Retorno</h3>
-            <%}%>
-            <%if(task.type == 'attendance'){%>
-                <h3>Tipo de Atendimento: Atendimento</h3>
-            <%}%>
-            <br>
-            <h3><%= task.createdAt.toLocaleString()%></h3>
-            <br>
-            <a href="/feed/guider/edit/<%=task.id%>">Editar</a>
-            <form action="/feed/guider/delTask/<%=task.id%>?_method=DELETE" method="POST">
-                <button type="submit">Excluir task</button>
-            </form>
-        </div>
-        <hr>
-    <%})%>
-</center>
+    <script src="/js/feedScript.js"></script> 
+    <script>
+        const protocolInput = document.querySelector('.protocol')
+        protocolInput.focus();
+    </script>
+</body>
+
+</html>
