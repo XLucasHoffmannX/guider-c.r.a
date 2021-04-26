@@ -163,14 +163,14 @@ nav li {
     margin-bottom: 1rem;
 }
 
-.opt{
+.opt {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 1rem 0;
 }
 
-.edit_guider, .remove_guider{
+.edit_guider, .remove_guider {
     border: none;
     outline: none;
     display: flex;
@@ -184,13 +184,18 @@ nav li {
     margin: 0 1rem;
 }
 
-.edit_guider:hover, .remove_guider:hover{
+.edit_guider:hover, .remove_guider:hover {
     text-decoration: underline;
 }
 
-.edit_guider{ background: #FFBB12; }
+.edit_guider {
+    background: #FFBB12;
+}
 
-.remove_guider{ background-color: #f32929; }
+.remove_guider {
+    background-color: #f32929;
+}
+
 .btn_guider {
     display: flex;
     flex-direction: row-reverse;
@@ -215,6 +220,59 @@ nav li {
     transform: scale(1.015);
 }
 
+.card_profile {
+    margin-top: 2rem;
+    width: min(800px, 90%);
+    border-radius: 4px;
+    background: #e9e9e9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.img_profile, .info_profile {
+    height: 100%;
+}
+
+.img_profile {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: none;
+}
+
+.img_circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img_circle img {
+    width: 100%;
+    height: 100%;
+}
+
+.info_profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.info_profile h2 {
+    margin-bottom: 1rem;
+}
+
+.info_profile span {
+    margin-top: 1rem;
+}
+
 /* MEDIAS QUERY */
 
 @media (max-width:700px) {
@@ -231,4 +289,17 @@ nav li {
     .btn_f_control button {
         width: 100%;
     }
+    .card_profile {
+        flex-direction: column;
+    }
+    .img_profile, .info_profile {
+        width: 100%;
+    }
+    .info_profile {
+        align-items: center;
+    }
+    .info_profile h2 {
+        margin: 2rem;
+    }
+
 }

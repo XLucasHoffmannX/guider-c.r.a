@@ -1,16 +1,32 @@
-<center>
-    <br>
-    <br>
-    <div>
-        <h3>Nome de usuário</h2>
-        <p><%= user.username %></p>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <%- include('../../layouts/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles/feed/feed.css">
+        <title><%= user.username %> - Perfil</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header_feed">
+            <%- include('../../layouts/feed/header.ejs') %>
+        </header>
+        <main class="main_feed">
+            <div class="card_profile">
+                <div class="img_profile">
+                    <div class="img_circle">
+                        <img src="/img/avatar.gif" alt="">
+                    </div>
+                </div>
+                <div class="info_profile">
+                    <h2><%= user.username %></h2>
+                    <p><%= user.email %></p>
+                    <span><a href="/feed/logout">Sair</a></span>
+                </div>
+            </div>
+        </main>
     </div>
-    <div>
-        <h3>Email utilizado no cra:</h3>
-        <p><%= user.email %></p>
-    </div>
-    <div>
-        <h3>Referência de usuário</h3>
-        <p><%= user._id %></p>
-    </div>
-</center>
+
+</body>
+</html>

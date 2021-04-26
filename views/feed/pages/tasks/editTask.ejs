@@ -1,25 +1,42 @@
-<br>
-<center>
-    <h1>Editar</h1>
-    <% if (editMessage.length > 0) {%>
-        <div><%= editMessage %></div>
-    <% } %>
-    <form action="/feed/guider/edit/<%=task.id%>?_method=PUT" method="POST">
-        <div>
-            <label for="">Informe o número de protocolo</label>
-            <br>
-            <input type="text" name="protocol" value="<%=task.protocol%>">
-            <br>
-            <br>
-            <label for="">Tipo:</label>
-            <select name="type" id="">
-                <option value="attendance">Atendimento</option>
-                <option value="return">Retorno</option>
-            </select>
-        </div>
-        <br>
-        <div>
-            <button type="submit">Adicionar</button>
-        </div>
-    </form>
-</center>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <%- include('../../../layouts/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles/feed/feed.css">
+        <link rel="stylesheet" href="/css/styles/feed/formEdit.css">
+        <title>Feed</title>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header_feed">
+            <%- include('../../../layouts/feed/header.ejs') %>
+        </header>
+        <main class="main_feed">
+            <form class="edit" action="/feed/guider/edit/<%=task.id%>?_method=PUT" method="POST" method="POST">
+                <h1>Editar</h1>
+                <% if (editMessage.length > 0) {%>
+                    <div class="messageAlert"><%= editMessage %></div>
+                <% } %>
+                <div class="edit_c">
+                    <label for="">Número do protocolo:</label>
+                    <input type="number" name="protocol" value="<%=task.protocol%>">
+                </div>
+                <div class="edit_c">
+                    <label for="">Tipo:</label>
+                    <select name="type" id="">
+                        <option value="attendance">Atendimento</option>
+                        <option value="return">Retorno</option>
+                    </select>
+                </div>
+                <div class="edit_c btn">
+                    <button>Editar</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+</body>
+
+</html>

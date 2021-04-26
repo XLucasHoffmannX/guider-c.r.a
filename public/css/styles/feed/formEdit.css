@@ -1,0 +1,84 @@
+.messageAlert{
+    display: flex;
+    align-items: center;
+    padding: .4rem 1rem;
+    background: rgb(252, 39, 39);
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.edit{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: min(800px, 90%);
+    border-radius: 4px;
+    background: #c9c9c9;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .3);
+    padding: 1rem;
+}
+
+.edit_c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.edit_c label{
+    font-size: 18px;
+    font-weight: 550;
+    margin-bottom: .5rem;
+}
+
+.edit_c input{
+    height: 40px;
+    padding: 0 1rem;
+    font-size: 20px;
+}
+
+.edit_c textarea{
+    padding: 1rem;
+    font-size: 20px;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
+}
+
+.edit_c select{
+    height: 40px;
+    font-size: 18px;
+    background: #fff;
+}
+
+.edit_c.btn{
+    align-items: center;
+}
+
+.edit_c button{
+    width: 50%;
+    border: none;
+    outline: none;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 6px;
+}
+
+.edit_c button:hover{
+    transform: scale(1.015);
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width:700px) {
+    .edit_c button{
+        width: 100%;
+    }
+    
+}
