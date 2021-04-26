@@ -18,7 +18,7 @@
 
 <br>
 <p align="center">
-  <img src="./public/img/pc_and_cel.svg" width=400 title="Login">
+  <img src="./public/img/pc_and_cel.svg" width=450 title="Login">
 </p>
 <br>
 ## Run
