@@ -10,7 +10,7 @@
 <br>
 
 ## Demo
-👉 Acesse uma demo aqui : https://guidercra.herokuapp.com/
+👉 Acesse uma versão demo aqui : https://guidercra.herokuapp.com/
 
 ## Features
 - ✅ **Se cadastrar e fazer login**
