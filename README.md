@@ -1,7 +1,6 @@
 # Guider CRA - Guia de controle de retornos e atendimentos
-<p align="center">
-    <h3>Solução simples de guia de controle de retorno e atendimentos</h3>
-</p>
+<br>
+<h3  align="center">Solução simples de guia de controle de retorno e atendimentos</h3>
 <br>
 <p align="center"><strong>GuiderCRA - por Hoffmann</strong></p>
 <br>
